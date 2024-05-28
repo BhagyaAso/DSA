@@ -1,0 +1,79 @@
+/******************************************************************************
+
+//statis array insert deletion operation
+*******************************************************************************/
+
+#include <iostream>
+using namespace std;
+
+void inputarray(int arr[], int n){
+    for(int i =0; i<n; i++){
+        cin>>arr[i];
+    }
+}
+void outputarray(int arr[], int n){
+    for(int i =0; i<n; i++){
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
+}
+
+void insertatbegin(int arr[], int n, int key){
+    for(int i =n; i>0; i--){
+        arr[i] = arr[i-1];
+    }
+    arr[0] = key;
+    n++;
+}
+
+void insertatend(int arr[], int n, int key){
+    int i;
+    arr[i] = key;
+    n++;
+    for(int i =0; i <n; i++){
+       cout<<arr[i]<<" ";
+    }
+    cout<<endl;
+}
+void insertatmiddle(int arr[], int n, int key, int pos){
+    for(int i=n; i<pos-1; i--){
+        arr[i+1] = arr[i];
+    }
+    arr[pos-1] = key;
+    n++;
+}
+void deleteatbeg(int arr[], int n, int key){
+    for(int i = 0; i<n; i++){
+        arr[i] = arr[i+1];
+    }
+    n--;
+    outputarray(arr, n);
+}
+void deleteatend(int arr[], int n, int key){
+    n--;
+    for(int i = 0; i<n; i++){
+        cout<<arr[i]<<" ";
+    }
+}
+int main(){
+    int size;
+    cout<<"enter size"<<endl;
+    cin>>size;
+    int arr[size];
+    inputarray(arr, size);
+    int key;
+    //cout<<"enter element to insert"<<endl;
+    cout<<"enter element to delet"<<endl;
+    cin>>key;
+    
+    // cout<<"enter position to insert element"<<endl;
+    // int pos;
+    // cin>>pos;
+    // insertatbegin(arr,size,key);
+   //insertatend(arr, size,key);
+   //insertatmiddle(arr, size, key, pos);
+  
+   //deleteatbeg(arr, size,key);
+   deleteatend(arr, size,key);
+  // outputarray(arr, size);
+}
