@@ -1,6 +1,6 @@
 /******************************************************************************
 Dynamic array opeartions.. inser delete middle
-delete at middle pending
+delete at middle pending and insert at end not working 
 *******************************************************************************/
 
 #include <iostream>
