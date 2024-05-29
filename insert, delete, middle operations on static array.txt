@@ -1,6 +1,7 @@
 /******************************************************************************
 
 //statis array insert deletion operation
+delete at middle element pending 
 *******************************************************************************/
 
 #include <iostream>
