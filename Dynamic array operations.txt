@@ -1,0 +1,88 @@
+/******************************************************************************
+Dynamic array opeartions.. inser delete middle
+delete at middle pending
+*******************************************************************************/
+
+#include <iostream>
+using namespace std;
+
+void inputarray(int arr[], int n){
+    for(int i =0; i<n; i++){
+        cin>>arr[i];
+    }
+}
+
+void outputarray(int arr[], int n){
+    for(int i =0; i<n; i++){
+        cout<<arr[i]<<" ";
+    }
+}
+
+void insertatbeg(int arr[],int n, int key){
+    for(int i =n; i>0; i--){
+        arr[i] = arr[i-1];
+    }
+    arr[0]=key;
+    n++;
+    outputarray(arr,n);
+}
+
+void insertatend(int arr[], int n, int key){
+    int i;
+    arr[i] = key;
+    n++;
+    for(int i =0; i<n; i++){
+        cout<<arr[i]<<" ";
+    }
+    //outputarray(arr, n);
+}
+
+void insertatmiddle(int arr[], int n, int key, int pos){
+    for(int i =n; i<pos-1; i++){
+        arr[i+1] = arr[i];
+    }
+    arr[pos-1]= key;
+    outputarray(arr,n);
+}
+void deletatbeg(int arr[], int n){
+    for(int i =0; i<n; i++){
+        arr[i] = arr[i+1];
+    }
+    n--;
+    outputarray(arr,n);
+}
+
+void deleteatend(int arr[], int n){
+    n--;
+    for(int i = 0; i<n; i++)
+    cout<<arr[i]<<" ";
+}
+void deleteatmiddle(int arr[], int n, int pos, int key){
+    
+    for(int i = n; i<pos-1; i--){
+        arr[i] = arr[i+1];
+    }
+}
+int main()
+{
+   int size;
+   cout<<"enter the size of array";
+   cin>>size;
+   int *arr = new int[size];
+   inputarray(arr,size);
+   int key;
+  // cout<<"enter key to insert";
+  //cin>>key;
+   int pos;
+   cout<<"Enter Postion to insert";
+   cin>>pos;
+  // insertatbeg(arr,size,key);
+ // insertatend(arr,size,key);
+// insertatmiddle(arr,size,key,pos);
+ //deletatbeg(arr,size);
+ //deleteatend(arr,size);
+ deleteatmiddle(arr, size, pos);
+   outputarray(arr, size);
+   delete[] arr;
+    return 0;
+}
