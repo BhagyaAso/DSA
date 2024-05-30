@@ -1,0 +1,94 @@
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <iostream>
+using namespace std;
+class Node{
+    public:
+    int data;
+    Node* next;
+    //constructor
+    Node(int data){
+        this->data = data;
+        this->next = NULL;
+    }
+    
+};
+void insertATHead(Node* &head, int d){
+    //create new Node temp
+    Node* temp = new Node(d);
+    temp->next = head;
+    head = temp;
+}
+
+void insertATTail(Node* &tail, int d){
+    //create new Node
+    Node* temp = new Node(d);
+    tail->next = temp;
+    tail = temp;
+}
+void print(Node* &head){
+    if(head == NULL){
+        cout<<" list is empty";
+        return;
+    }
+    
+    Node* temp = head; // keep pointer at head for traverse
+    
+    while(temp != NULL){
+        cout<<temp->data<<" ";
+        temp = temp->next; // move pointer to next node
+    }
+    cout<<endl;
+}
+
+void insertAtPosition(Node* &head, Node* &tail, int position, int d){
+    if(position == 1){
+        insertATHead(head, d);
+        return;
+    }
+    
+    Node* temp = head;
+    int cnt =1;
+    while(cnt < position -1){
+        temp = temp-> next;
+        cnt++;
+    }
+    if(temp->next = NULL){
+        insertATTail(tail,d);
+        return;
+    }
+    Node* NodetoInsert = new Node(d);
+    NodetoInsert ->next = temp ->next;
+    temp->next = NodetoInsert;
+    
+}
+
+
+int main()
+{
+    //create new node
+    Node* Node1 = new Node(10);
+    
+   // cout<<Node1->data<<" ";
+    //cout<<Node1->next<<" ";
+    
+    //head pointing to node1
+   Node * head = Node1;
+   Node* tail = Node1;
+   insertATHead(head,11);
+   print(head);
+   
+   insertATTail(tail, 20);
+   print(head);
+   insertAtPosition(head,tail,3,50);
+   print(head);
+    return 0;
+}
+
+
